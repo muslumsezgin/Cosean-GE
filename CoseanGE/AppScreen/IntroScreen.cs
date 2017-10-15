@@ -56,10 +56,8 @@ namespace CoseanGE.AppScreen
                 return;
             }
 
-            if (data.Contains(opn.FileName))
-                data.Add(opn.FileName);
 
-            //ScreenController.CloseIntro(opn.FileName);
+            ScreenController.CloseIntro(opn.FileName);
         }
 
         private void openEditor(String path)
