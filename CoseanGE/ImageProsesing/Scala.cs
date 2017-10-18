@@ -29,28 +29,32 @@ namespace CoseanGE.ImageProsesing
             return newImage;
         }
 
-        public void cvb(Bitmap bmp,double maxWidth, double maxHeight)
+        public static Bitmap myScale(Bitmap bmp, double maxWidth, double maxHeight)
         {
+            Bitmap newImage = new Bitmap((int)maxWidth, (int)maxHeight);
             var ratioX = (double)maxWidth / bmp.Width;
             var ratioY = (double)maxHeight / bmp.Height;
-            //var ratio = Math.Min(ratioX, ratioY);
-
-            var newWidth = (int)(bmp.Width * ratioX);
-            var newHeight = (int)(bmp.Height * ratioY);
-
-            Color c;
-            for (int i = 0; i < bmp.Width; i++)
+            Color[] bmpPixels = new Color[bmp.Width * bmp.Height];
+            
+            for (int y = 0; y < bmp.Height; y++)
             {
-                for (int j = 0; j < bmp.Height; j++)
+                for (int x = 0; x < bmp.Width; x++)
                 {
-                    c = bmp.GetPixel(i, j);
-                    SolidBrush color = new SolidBrush(c);
-                    using (Graphics g = Graphics.FromImage(bmp))
-                    {
-                        g.FillRectangle(color, i, j, newWidth, newHeight);
-                    }
+                    Color colour = bmp.GetPixel(x, y);
+
+                    bmpPixels[x + y * bmp.Width] = colour;
                 }
             }
+            
+            for (int i = 0; i < newImage.Height; i++)
+            {
+                for (int j = 0; j < newImage.Width; j++)
+                {
+                    //newImage.SetPixel(j, i,bmpPixels[j+*]);
+                }
+            }
+
+            return newImage;
         }
 
         public static Bitmap Zoom(Image img, Double size)

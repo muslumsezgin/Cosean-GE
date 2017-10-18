@@ -14,6 +14,7 @@ namespace CoseanGE.ImageProsesing
 
         public static Image build(Bitmap bmp)
         {
+            int ratio = 1;
 
             int[] histR = new int[256];
             int[] histG = new int[256];
@@ -28,10 +29,16 @@ namespace CoseanGE.ImageProsesing
                     histR[c.R] += 1;
                     histG[c.G] += 1;
                     histB[c.B] += 1;
+
+                    ratio = ratio < histR[c.R] ? histR[c.R] : ratio;
+                    ratio = ratio < histG[c.G] ? histG[c.G] : ratio;
+                    ratio = ratio < histB[c.B] ? histB[c.B] : ratio;
+                   
                 }
             }
-
-            Bitmap image = new Bitmap(512, 256);
+            Console.WriteLine(ratio);
+            Bitmap image = new Bitmap(512, ratio);
+            Console.WriteLine(ratio);
             SolidBrush trnsRedBrush = new SolidBrush(Color.FromArgb(78, 255, 0, 0));
             SolidBrush trnsGreenBrush = new SolidBrush(Color.FromArgb(78, 0, 255, 0));
             SolidBrush trnsBlueBrush = new SolidBrush(Color.FromArgb(78, 0, 0, 255));
@@ -42,17 +49,20 @@ namespace CoseanGE.ImageProsesing
 
                 using (Graphics g = Graphics.FromImage(image))
                 {
-                    g.FillRectangle(trnsRedBrush, j * 2, 256 - (histR[j] / 256), 2, histR[j] / 256);
+                    //g.FillRectangle(trnsRedBrush, j * 2, ratio - (histR[j] / ratio), 2, histR[j] / ratio);
+                    g.FillRectangle(trnsRedBrush, j * 2, ratio - (histR[j]), 2, histR[j] );
                 }
 
                 using (Graphics g = Graphics.FromImage(image))
                 {
-                    g.FillRectangle(trnsGreenBrush, j * 2, 256 - (histG[j] / 256), 2, histG[j] / 256);
+                    //g.FillRectangle(trnsGreenBrush, j * 2, ratio - (histG[j] / ratio), 2, histG[j] / ratio);
+                    g.FillRectangle(trnsGreenBrush, j * 2, ratio - (histG[j]), 2, histG[j] );
                 }
 
                 using (Graphics g = Graphics.FromImage(image))
                 {
-                    g.FillRectangle(trnsBlueBrush, j * 2, 256 - (histB[j] / 256), 2, histB[j] / 256);
+                    //g.FillRectangle(trnsBlueBrush, j * 2, ratio - (histB[j] / ratio), 2, histB[j] / ratio);
+                    g.FillRectangle(trnsBlueBrush, j * 2, ratio - (histB[j] ), 2, histB[j] );
                 }
 
             }

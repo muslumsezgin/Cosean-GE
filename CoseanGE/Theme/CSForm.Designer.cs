@@ -126,6 +126,7 @@
             // _MinButton
             // 
             this._MinButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._MinButton.BackColor = System.Drawing.Color.Transparent;
             this._MinButton.BZBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
             this._MinButton.DisplayText = "_";
             this._MinButton.FlatAppearance.BorderSize = 0;
@@ -141,12 +142,13 @@
             this._MinButton.Text = "_";
             this._MinButton.TextLocation_X = 11;
             this._MinButton.TextLocation_Y = -8;
-            this._MinButton.UseVisualStyleBackColor = true;
+            this._MinButton.UseVisualStyleBackColor = false;
             this._MinButton.Click += new System.EventHandler(this._MinButton_Click);
             // 
             // _CloseButton
             // 
             this._CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._CloseButton.BackColor = System.Drawing.Color.Transparent;
             this._CloseButton.BZBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
             this._CloseButton.DisplayText = "X";
             this._CloseButton.FlatAppearance.BorderSize = 0;
@@ -162,7 +164,7 @@
             this._CloseButton.Text = "X";
             this._CloseButton.TextLocation_X = 11;
             this._CloseButton.TextLocation_Y = 2;
-            this._CloseButton.UseVisualStyleBackColor = true;
+            this._CloseButton.UseVisualStyleBackColor = false;
             this._CloseButton.Click += new System.EventHandler(this._CloseButton_Click);
             // 
             // CSForm

@@ -21,6 +21,7 @@ namespace CoseanGE.Controller
             InitializeComponent();
             splashSC = new Splash();
             splashSC.ShowDialog();
+
         }
 
         public static void CloseSplash() {
@@ -38,6 +39,15 @@ namespace CoseanGE.Controller
             editorSC.Close();
             introSC.ShowDialog();
             
+        }
+
+        public static void NewEditor(String path)
+        {
+            editorSC.Hide();
+            editorSC.Close();
+            editorSC = new EditorScrenn(path);
+            editorSC.ShowDialog();
+
         }
 
         public static void CloseIntro(String file)

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CoseanGE" GeneratedClassName="ThemeColor">
+  <Profiles />
+  <Settings>
+    <Setting Name="Top" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 83, 13</Value>
+    </Setting>
+    <Setting Name="Drawer" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 83, 13</Value>
+    </Setting>
+    <Setting Name="Panel" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">255, 83, 13</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
