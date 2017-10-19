@@ -31,16 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorScrenn));
             this.P_Drawer = new System.Windows.Forms.Panel();
             this.P_Open = new System.Windows.Forms.Panel();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.B_OpenBack = new System.Windows.Forms.Button();
             this.B_Help = new System.Windows.Forms.Button();
             this.B_CloseProject = new System.Windows.Forms.Button();
@@ -95,6 +85,7 @@
             this.PB_Histogram = new System.Windows.Forms.PictureBox();
             this.P_Picture = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.P_OpenRecentButtons = new System.Windows.Forms.Panel();
             this.TopPanel.SuspendLayout();
             this.P_Drawer.SuspendLayout();
             this.P_Open.SuspendLayout();
@@ -171,220 +162,12 @@
             // P_Open
             // 
             this.P_Open.AutoScroll = true;
-            this.P_Open.Controls.Add(this.button18);
-            this.P_Open.Controls.Add(this.button16);
-            this.P_Open.Controls.Add(this.button15);
-            this.P_Open.Controls.Add(this.button14);
-            this.P_Open.Controls.Add(this.button13);
-            this.P_Open.Controls.Add(this.button12);
-            this.P_Open.Controls.Add(this.button11);
-            this.P_Open.Controls.Add(this.button10);
-            this.P_Open.Controls.Add(this.button9);
-            this.P_Open.Controls.Add(this.button8);
+            this.P_Open.Controls.Add(this.P_OpenRecentButtons);
             this.P_Open.Controls.Add(this.B_OpenBack);
             this.P_Open.Location = new System.Drawing.Point(0, 0);
             this.P_Open.Name = "P_Open";
             this.P_Open.Size = new System.Drawing.Size(0, 390);
             this.P_Open.TabIndex = 29;
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.Transparent;
-            this.button18.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button18.ForeColor = System.Drawing.Color.White;
-            this.button18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button18.Location = new System.Drawing.Point(0, 40);
-            this.button18.Name = "button18";
-            this.button18.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button18.Size = new System.Drawing.Size(38, 35);
-            this.button18.TabIndex = 39;
-            this.button18.Text = "C:/User/Desktop/snow.jpc";
-            this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button18.UseVisualStyleBackColor = false;
-            // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.Transparent;
-            this.button16.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button16.ForeColor = System.Drawing.Color.White;
-            this.button16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button16.Location = new System.Drawing.Point(0, 75);
-            this.button16.Name = "button16";
-            this.button16.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button16.Size = new System.Drawing.Size(38, 35);
-            this.button16.TabIndex = 38;
-            this.button16.Text = "C:/User/Desktop/snow.jpc";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            this.button15.BackColor = System.Drawing.Color.Transparent;
-            this.button15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button15.Location = new System.Drawing.Point(0, 110);
-            this.button15.Name = "button15";
-            this.button15.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button15.Size = new System.Drawing.Size(38, 35);
-            this.button15.TabIndex = 37;
-            this.button15.Text = "C:/User/Desktop/snow.jpc";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.UseVisualStyleBackColor = false;
-            // 
-            // button14
-            // 
-            this.button14.BackColor = System.Drawing.Color.Transparent;
-            this.button14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button14.Location = new System.Drawing.Point(0, 145);
-            this.button14.Name = "button14";
-            this.button14.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button14.Size = new System.Drawing.Size(38, 35);
-            this.button14.TabIndex = 36;
-            this.button14.Text = "C:/User/Desktop/snow.jpc";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.UseVisualStyleBackColor = false;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.Transparent;
-            this.button13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button13.Location = new System.Drawing.Point(0, 180);
-            this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button13.Size = new System.Drawing.Size(38, 35);
-            this.button13.TabIndex = 35;
-            this.button13.Text = "C:/User/Desktop/snow.jpc";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.Transparent;
-            this.button12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button12.Location = new System.Drawing.Point(0, 215);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button12.Size = new System.Drawing.Size(38, 35);
-            this.button12.TabIndex = 34;
-            this.button12.Text = "C:/User/Desktop/snow.jpc";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.Transparent;
-            this.button11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button11.Location = new System.Drawing.Point(0, 250);
-            this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button11.Size = new System.Drawing.Size(38, 35);
-            this.button11.TabIndex = 33;
-            this.button11.Text = "C:/User/Desktop/snow.jpc";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Transparent;
-            this.button10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button10.Location = new System.Drawing.Point(0, 285);
-            this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button10.Size = new System.Drawing.Size(38, 35);
-            this.button10.TabIndex = 32;
-            this.button10.Text = "C:/User/Desktop/snow.jpc";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.Transparent;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button9.Location = new System.Drawing.Point(0, 320);
-            this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button9.Size = new System.Drawing.Size(38, 35);
-            this.button9.TabIndex = 31;
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F);
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button8.Location = new System.Drawing.Point(0, 355);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.button8.Size = new System.Drawing.Size(38, 35);
-            this.button8.TabIndex = 30;
-            this.button8.Text = "C:/User/Desktop/snow.jpc";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // B_OpenBack
             // 
@@ -1260,6 +1043,13 @@
             this.panel1.Size = new System.Drawing.Size(1, 626);
             this.panel1.TabIndex = 13;
             // 
+            // P_OpenRecentButtons
+            // 
+            this.P_OpenRecentButtons.Location = new System.Drawing.Point(0, 40);
+            this.P_OpenRecentButtons.Name = "P_OpenRecentButtons";
+            this.P_OpenRecentButtons.Size = new System.Drawing.Size(220, 350);
+            this.P_OpenRecentButtons.TabIndex = 30;
+            // 
             // EditorScrenn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1365,22 +1155,13 @@
         private System.Windows.Forms.Button B_Help;
         private System.Windows.Forms.Button B_CloseProject;
         private System.Windows.Forms.Panel P_Open;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button B_OpenBack;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
         private MaterialSkin.Controls.MaterialCheckBox Blue;
         private MaterialSkin.Controls.MaterialCheckBox Green;
         private MaterialSkin.Controls.MaterialCheckBox Red;
         private System.Windows.Forms.Button B_RotateL;
         private System.Windows.Forms.Button B_RefHis;
         private System.Windows.Forms.PictureBox PB_Histogram;
+        private System.Windows.Forms.Panel P_OpenRecentButtons;
     }
 }

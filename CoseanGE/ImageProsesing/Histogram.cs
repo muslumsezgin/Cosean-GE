@@ -15,7 +15,7 @@ namespace CoseanGE.ImageProsesing
         public static Image build(Bitmap bmp)
         {
             int ratio = 1;
-
+            Console.WriteLine("bakkkkk" + ratio);
             int[] histR = new int[256];
             int[] histG = new int[256];
             int[] histB = new int[256];
@@ -36,7 +36,8 @@ namespace CoseanGE.ImageProsesing
                    
                 }
             }
-            Console.WriteLine(ratio);
+            Console.WriteLine("bakkkkk"+ratio);
+            ratio = ratio % 100000;
             Bitmap image = new Bitmap(512, ratio);
             Console.WriteLine(ratio);
             SolidBrush trnsRedBrush = new SolidBrush(Color.FromArgb(78, 255, 0, 0));

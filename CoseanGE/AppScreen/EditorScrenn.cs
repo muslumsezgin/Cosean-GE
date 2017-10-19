@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace CoseanGE.AppScreen
 {
     public partial class EditorScrenn : Theme.CSSizableForm
     {
-
         bool orgPanelVisible = true;
         bool propPanelVisible = true;
         bool drawerPanelVisible = false;
@@ -67,6 +67,9 @@ namespace CoseanGE.AppScreen
             originalPB.BackgroundImageLayout = ImageLayout.Stretch;
             P_Original.Controls.Add(originalPB);
 
+            for (int i = 0; i < ScreenController.openRecent.Count; i++)
+                P_OpenRecentButtons.Controls.Add(addButton(ScreenController.openRecent[i], i));
+
             C_Zoom.DisplayMember = "Text";
             C_Zoom.ValueMember = "Value";
 
@@ -88,6 +91,29 @@ namespace CoseanGE.AppScreen
             initializeTheme();
 
 
+        }
+
+        private Button addButton(string name, int i)
+        {
+            Button b = new Button();
+            b.Text = name;
+            b.TextAlign = ContentAlignment.MiddleLeft;
+            b.Dock = DockStyle.Top;
+            b.Height = 35;
+            b.ForeColor = Color.White;
+            b.BackColor = Color.Transparent;
+            b.FlatStyle = FlatStyle.Flat;
+            b.FlatAppearance.BorderSize = 0;
+            b.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 123, 13);
+            b.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 53, 13);
+            b.Click += (s, e) => { ClickButton(name); };
+            return b;
+        }
+
+        private void ClickButton(string name)
+        {
+            ScreenController.WriteOpenRecent(name);
+            ScreenController.NewEditor(name);
         }
 
         public void initializeToolTip() {
@@ -266,6 +292,7 @@ namespace CoseanGE.AppScreen
                 return;
             }
             pathSource = opn.FileName;
+            ScreenController.WriteOpenRecent(opn.FileName);
             //Image temp = Bitmap.FromFile(pathSource);
             //imgOriginal = new Bitmap(temp);
             //imgPreview = new Bitmap(temp);

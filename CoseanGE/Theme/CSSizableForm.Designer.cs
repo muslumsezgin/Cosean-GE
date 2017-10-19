@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CSSizableForm));
             this.TopPanel = new CoseanGE.Theme.CSPanel();
+            this._MinButton = new CoseanGE.Theme.CSButton();
             this.button1 = new System.Windows.Forms.Button();
             this._MaxButton = new CoseanGE.Theme.CSFullScreenButton();
             this.AppName = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.RightBorderPanel = new CoseanGE.Theme.CSPanel();
             this.LeftBorderPanel = new CoseanGE.Theme.CSPanel();
             this.TopBorderPanel = new CoseanGE.Theme.CSPanel();
-            this._MinButton = new CoseanGE.Theme.CSButton();
             this.TopPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,28 @@
             this.TopPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseDown);
             this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
             this.TopPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
+            // 
+            // _MinButton
+            // 
+            this._MinButton.BackColor = System.Drawing.Color.Transparent;
+            this._MinButton.BZBackColor = System.Drawing.Color.Transparent;
+            this._MinButton.DisplayText = "_";
+            this._MinButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this._MinButton.FlatAppearance.BorderSize = 0;
+            this._MinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._MinButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold);
+            this._MinButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(251)))), ((int)(((byte)(250)))));
+            this._MinButton.Location = new System.Drawing.Point(1076, 0);
+            this._MinButton.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(23)))), ((int)(((byte)(13)))));
+            this._MinButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(53)))));
+            this._MinButton.Name = "_MinButton";
+            this._MinButton.Size = new System.Drawing.Size(40, 30);
+            this._MinButton.TabIndex = 34;
+            this._MinButton.Text = "_";
+            this._MinButton.TextLocation_X = 11;
+            this._MinButton.TextLocation_Y = -8;
+            this._MinButton.UseVisualStyleBackColor = false;
+            this._MinButton.Click += new System.EventHandler(this._MinButton_Click);
             // 
             // button1
             // 
@@ -197,28 +219,6 @@
             this.TopBorderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopBorderPanel_MouseDown);
             this.TopBorderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBorderPanel_MouseMove);
             this.TopBorderPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopBorderPanel_MouseUp);
-            // 
-            // _MinButton
-            // 
-            this._MinButton.BackColor = System.Drawing.Color.Transparent;
-            this._MinButton.BZBackColor = System.Drawing.Color.Transparent;
-            this._MinButton.DisplayText = "_";
-            this._MinButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this._MinButton.FlatAppearance.BorderSize = 0;
-            this._MinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._MinButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold);
-            this._MinButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(251)))), ((int)(((byte)(250)))));
-            this._MinButton.Location = new System.Drawing.Point(1076, 0);
-            this._MinButton.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(23)))), ((int)(((byte)(13)))));
-            this._MinButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(53)))));
-            this._MinButton.Name = "_MinButton";
-            this._MinButton.Size = new System.Drawing.Size(40, 30);
-            this._MinButton.TabIndex = 34;
-            this._MinButton.Text = "_";
-            this._MinButton.TextLocation_X = 11;
-            this._MinButton.TextLocation_Y = -8;
-            this._MinButton.UseVisualStyleBackColor = false;
-            this._MinButton.Click += new System.EventHandler(this._MinButton_Click);
             // 
             // CSSizableForm
             // 
