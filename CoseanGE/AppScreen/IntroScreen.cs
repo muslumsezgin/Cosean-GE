@@ -16,15 +16,6 @@ namespace CoseanGE.AppScreen
     public partial class IntroScreen : Theme.CSForm
     {
 
-        List<String> data;
-        string filename = "C:\\test\\test.txt";
-
-        [Serializable]
-        public struct MyStructData
-        {
-            public string Name;
-        }
-
         public IntroScreen()
         {
             InitializeComponent();
@@ -32,50 +23,46 @@ namespace CoseanGE.AppScreen
 
         private void IntroScreen_Load(object sender, EventArgs e)
         {
-            data = new List<String>();
+            for (int i = 0; i < ScreenController.openRecent.Count; i++)
+                P_OpenRecent.Controls.Add(addButton(ScreenController.openRecent[i]));
         }
 
-        private void B_Open_Click(object sender, EventArgs e)
-        {
-            
-            using (var file = File.OpenWrite(filename))
-            {
-                var writer = new BinaryFormatter();
-                writer.Serialize(file, data); // Writes the entire list.
-            }
+        private Button addButton(string name) {
 
-            
+            Button b = new Button();
+            b.Text = name;
+            b.TextAlign = ContentAlignment.MiddleLeft;
+            b.Dock = DockStyle.Top;
+            b.Height = 45;
+            b.ForeColor = Color.White;
+            b.BackColor = Color.Transparent;
+            b.FlatStyle = FlatStyle.Flat;
+            b.FlatAppearance.BorderSize = 0;
+            b.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 83, 13);
+            b.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 53, 13);
+            b.Click += (s, e) => { ClickButton(name); };  
+            return b;
         }
 
         private void B_Open_Click2(object sender, EventArgs e)
         {
+            
             OpenFileDialog opn = new OpenFileDialog();
             opn.Filter = "JPG|*.jpg;*.jpeg|BMP|*.bmp|GIF|*.gif|PNG|*.png|TIFF|*.tif;*.tiff|All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff";
-            if (opn.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            if (opn.ShowDialog() != System.Windows.Forms.DialogResult.OK){return;}
+
+            ClickButton(opn.FileName);
+        }
+
+        private void ClickButton(string name) {
+            if (File.Exists(name))
             {
-                return;
+                ScreenController.WriteOpenRecent(name);
+                ScreenController.CloseIntro(name);
             }
-
-
-            ScreenController.CloseIntro(opn.FileName);
-        }
-
-        private void openEditor(String path)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            using (var file = File.OpenRead(filename))
-            {
-                var reader = new BinaryFormatter();
-                data = (List<String>)reader.Deserialize(file); // Reads the entire list.
+            else {
+                MessageBox.Show(name + " not fount","File Error");
             }
-
-            foreach (var item in data)
-                Console.WriteLine(item);
         }
-
     }
 }

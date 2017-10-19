@@ -19,16 +19,16 @@ namespace CoseanGE.AppScreen
         public Splash()
         {
             InitializeComponent();
+            
         }
 
         System.Windows.Forms.Timer t;
 
         private void Splash_Load(object sender, EventArgs e)
         {
-
             t = new System.Windows.Forms.Timer();
 
-            t.Interval = 2000; // specify interval time as you want
+            t.Interval = 1000; // specify interval time as you want
             t.Tick += new EventHandler(timer_Tick);
             t.Start();
         }
@@ -37,6 +37,7 @@ namespace CoseanGE.AppScreen
         {
             
                 t.Stop();
+                ScreenController.ReadOpenRecent();
                 ScreenController.CloseSplash();
         }
 
