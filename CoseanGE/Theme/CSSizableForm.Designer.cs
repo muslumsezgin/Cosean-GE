@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CSSizableForm));
             this.TopPanel = new CoseanGE.Theme.CSPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this._MaxButton = new CoseanGE.Theme.CSFullScreenButton();
             this.AppName = new System.Windows.Forms.Label();
-            this._MinButton = new CoseanGE.Theme.CSButton();
             this._CloseButton = new CoseanGE.Theme.CSButton();
             this.BottomBorderPanel = new CoseanGE.Theme.CSPanel();
             this.RightBorderPanel = new CoseanGE.Theme.CSPanel();
             this.LeftBorderPanel = new CoseanGE.Theme.CSPanel();
             this.TopBorderPanel = new CoseanGE.Theme.CSPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this._MinButton = new CoseanGE.Theme.CSButton();
             this.TopPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,10 +47,10 @@
             this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
             this.TopPanel.BorderColor = System.Drawing.Color.DarkSlateGray;
             this.TopPanel.BorderWidth = 0;
+            this.TopPanel.Controls.Add(this._MinButton);
             this.TopPanel.Controls.Add(this.button1);
             this.TopPanel.Controls.Add(this._MaxButton);
             this.TopPanel.Controls.Add(this.AppName);
-            this.TopPanel.Controls.Add(this._MinButton);
             this.TopPanel.Controls.Add(this._CloseButton);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(2, 1);
@@ -61,24 +61,47 @@
             this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
             this.TopPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseUp);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 33;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // _MaxButton
             // 
-            this._MaxButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._MaxButton.BZBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
+            this._MaxButton.BackColor = System.Drawing.Color.Transparent;
+            this._MaxButton.BZBackColor = System.Drawing.Color.Transparent;
             this._MaxButton.CFormState = CoseanGE.Theme.CSFullScreenButton.CustomFormState.Normal;
-            this._MaxButton.DisplayText = "_";
+            this._MaxButton.DisplayText = "";
+            this._MaxButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this._MaxButton.FlatAppearance.BorderSize = 0;
             this._MaxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._MaxButton.ForeColor = System.Drawing.Color.White;
-            this._MaxButton.Location = new System.Drawing.Point(1118, 0);
+            this._MaxButton.Location = new System.Drawing.Point(1116, 0);
             this._MaxButton.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(23)))), ((int)(((byte)(13)))));
             this._MaxButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(53)))));
             this._MaxButton.Name = "_MaxButton";
             this._MaxButton.Size = new System.Drawing.Size(40, 30);
             this._MaxButton.TabIndex = 3;
-            this._MaxButton.Text = "csFullScreenButton1";
+            this._MaxButton.Text = " ";
+            this._MaxButton.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this._MaxButton.TextLocation_X = 14;
             this._MaxButton.TextLocation_Y = 10;
-            this._MaxButton.UseVisualStyleBackColor = true;
+            this._MaxButton.UseVisualStyleBackColor = false;
             this._MaxButton.Click += new System.EventHandler(this._MaxButton_Click);
             // 
             // AppName
@@ -93,46 +116,26 @@
             this.AppName.TabIndex = 2;
             this.AppName.Text = "Cosean Graphic Editor";
             // 
-            // _MinButton
-            // 
-            this._MinButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._MinButton.BZBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
-            this._MinButton.DisplayText = "_";
-            this._MinButton.FlatAppearance.BorderSize = 0;
-            this._MinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._MinButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold);
-            this._MinButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(251)))), ((int)(((byte)(250)))));
-            this._MinButton.Location = new System.Drawing.Point(1078, 0);
-            this._MinButton.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(23)))), ((int)(((byte)(13)))));
-            this._MinButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(53)))));
-            this._MinButton.Name = "_MinButton";
-            this._MinButton.Size = new System.Drawing.Size(40, 30);
-            this._MinButton.TabIndex = 1;
-            this._MinButton.Text = "_";
-            this._MinButton.TextLocation_X = 11;
-            this._MinButton.TextLocation_Y = -8;
-            this._MinButton.UseVisualStyleBackColor = true;
-            this._MinButton.Click += new System.EventHandler(this._MinButton_Click);
-            // 
             // _CloseButton
             // 
-            this._CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._CloseButton.BZBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
+            this._CloseButton.BackColor = System.Drawing.Color.Transparent;
+            this._CloseButton.BZBackColor = System.Drawing.Color.Transparent;
             this._CloseButton.DisplayText = "X";
+            this._CloseButton.Dock = System.Windows.Forms.DockStyle.Right;
             this._CloseButton.FlatAppearance.BorderSize = 0;
             this._CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this._CloseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(251)))), ((int)(((byte)(250)))));
-            this._CloseButton.Location = new System.Drawing.Point(1158, 0);
+            this._CloseButton.Location = new System.Drawing.Point(1156, 0);
             this._CloseButton.MouseClickColor1 = System.Drawing.Color.Maroon;
             this._CloseButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._CloseButton.Name = "_CloseButton";
             this._CloseButton.Size = new System.Drawing.Size(40, 30);
             this._CloseButton.TabIndex = 0;
             this._CloseButton.Text = "X";
-            this._CloseButton.TextLocation_X = 10;
-            this._CloseButton.TextLocation_Y = 2;
-            this._CloseButton.UseVisualStyleBackColor = true;
+            this._CloseButton.TextLocation_X = 9;
+            this._CloseButton.TextLocation_Y = 4;
+            this._CloseButton.UseVisualStyleBackColor = false;
             this._CloseButton.Click += new System.EventHandler(this._CloseButton_Click);
             // 
             // BottomBorderPanel
@@ -195,25 +198,27 @@
             this.TopBorderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBorderPanel_MouseMove);
             this.TopBorderPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopBorderPanel_MouseUp);
             // 
-            // button1
+            // _MinButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 30);
-            this.button1.TabIndex = 33;
-            this.button1.UseVisualStyleBackColor = false;
+            this._MinButton.BackColor = System.Drawing.Color.Transparent;
+            this._MinButton.BZBackColor = System.Drawing.Color.Transparent;
+            this._MinButton.DisplayText = "_";
+            this._MinButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this._MinButton.FlatAppearance.BorderSize = 0;
+            this._MinButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._MinButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold);
+            this._MinButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(251)))), ((int)(((byte)(250)))));
+            this._MinButton.Location = new System.Drawing.Point(1076, 0);
+            this._MinButton.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(23)))), ((int)(((byte)(13)))));
+            this._MinButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(53)))));
+            this._MinButton.Name = "_MinButton";
+            this._MinButton.Size = new System.Drawing.Size(40, 30);
+            this._MinButton.TabIndex = 34;
+            this._MinButton.Text = "_";
+            this._MinButton.TextLocation_X = 11;
+            this._MinButton.TextLocation_Y = -8;
+            this._MinButton.UseVisualStyleBackColor = false;
+            this._MinButton.Click += new System.EventHandler(this._MinButton_Click);
             // 
             // CSSizableForm
             // 
@@ -237,15 +242,15 @@
 
         #endregion
 
-        private CSPanel TopBorderPanel;
-        private CSPanel LeftBorderPanel;
-        private CSPanel RightBorderPanel;
-        private CSPanel BottomBorderPanel;
-        private CSPanel TopPanel;
-        private CSFullScreenButton _MaxButton;
         private System.Windows.Forms.Label AppName;
-        private CSButton _MinButton;
-        private CSButton _CloseButton;
         private System.Windows.Forms.Button button1;
+        public CSPanel TopPanel;
+        public CSPanel TopBorderPanel;
+        public CSPanel LeftBorderPanel;
+        public CSPanel RightBorderPanel;
+        public CSPanel BottomBorderPanel;
+        public CSFullScreenButton _MaxButton;
+        public CSButton _CloseButton;
+        public CSButton _MinButton;
     }
 }

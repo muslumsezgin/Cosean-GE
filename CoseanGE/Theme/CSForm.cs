@@ -18,7 +18,9 @@ namespace CoseanGE.Theme
         Size _normalWindowSize;
         Point _normalWindowLocation = Point.Empty;
 
-        public CSForm(){ InitializeComponent();}
+        public CSForm(){ 
+            InitializeComponent();
+        }
 
         private void CSForm_Load(object sender, EventArgs e) { }
 
