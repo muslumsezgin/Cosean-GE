@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppScreen\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppScreen\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppScreen\EditorScrenn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,12 @@
     </Compile>
     <Compile Include="AppScreen\IntroScreen.Designer.cs">
       <DependentUpon>IntroScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppScreen\Shortcut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppScreen\Shortcut.Designer.cs">
+      <DependentUpon>Shortcut.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\ScreenController.cs">
       <SubType>Form</SubType>
@@ -91,6 +103,9 @@
     <Compile Include="Theme\CSButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Theme\CSDesButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Theme\CSForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +124,17 @@
     <Compile Include="Theme\CSSizableForm.Designer.cs">
       <DependentUpon>CSSizableForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppScreen\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppScreen\EditorScrenn.resx">
       <DependentUpon>EditorScrenn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppScreen\IntroScreen.resx">
       <DependentUpon>IntroScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppScreen\Shortcut.resx">
+      <DependentUpon>Shortcut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controller\ScreenController.resx">
       <DependentUpon>ScreenController.cs</DependentUpon>

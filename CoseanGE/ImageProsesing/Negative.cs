@@ -18,7 +18,7 @@ namespace CoseanGE.ImageProsesing
                 for (int j = 0; j < bmp.Height; j++)
                 {
                     c = bmp.GetPixel(i, j);
-                    c = Color.FromArgb(255 - c.R, 255 - c.G, 255 - c.B);
+                    c = Color.FromArgb(c.A, 255 - c.R, 255 - c.G, 255 - c.B);
                     bmp.SetPixel(i, j, c);
                 }
             }

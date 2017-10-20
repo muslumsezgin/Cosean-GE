@@ -92,6 +92,7 @@ namespace CoseanGE.Controller
         {
             editorSC.Hide();
             editorSC.Close();
+            GC.Collect();
             editorSC = new EditorScrenn(path);
             editorSC.ShowDialog();
 
@@ -109,6 +110,17 @@ namespace CoseanGE.Controller
         public static void CloseApp()
         {
             Application.Exit();
+
+        }
+
+        public static String pathSize(String pathSource,int size)
+        {
+            string str = pathSource;
+            if (pathSource.Length > size )
+            {
+                return pathSize(pathSource.Substring(pathSource.IndexOf('\\') + 1), size );
+            }
+            return str.IndexOf(":") == -1 ? "~\\" + str : str;
 
         }
 

@@ -1,6 +1,7 @@
 ﻿
 using CoseanGE.Controller;
 using CoseanGE.ImageProsesing;
+using CoseanGE.Theme;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ namespace CoseanGE.AppScreen
         bool GChannel = true;
         bool BChannel = true;
 
-        bool HistogramChange = true;
+        List<Bitmap> imageList;
 
         String pathSource;
         PictureBox originalPB;
@@ -44,9 +45,37 @@ namespace CoseanGE.AppScreen
             
         }
 
+
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Z | Keys.Control:
+                    Action_Undo();
+                    return true;
+                case Keys.O | Keys.Control:
+                    Action_Open();
+                    return true;
+                case Keys.S | Keys.Control:
+                    Action_Save();
+                    return true;
+                case Keys.S | Keys.Control | Keys.Shift:
+                    Action_SaveAs();
+                    return true;
+                case Keys.W | Keys.Control:
+                    ScreenController.CloseEditor();
+                    return true;
+              
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+
+        }
+
         private void EditorScrenn_Load(object sender, EventArgs e)
         {
-            
+            imageList = new List<Bitmap>();
             Image temp = Bitmap.FromFile(pathSource);
             imgOriginal = new Bitmap(temp);
             imgPreview = new Bitmap(temp);
@@ -57,6 +86,7 @@ namespace CoseanGE.AppScreen
             previewPB = new PictureBox();
 
             previewPB.Image = imgOriginal;
+            
             previewPB.SizeMode = PictureBoxSizeMode.AutoSize;
             previewPB.BackgroundImageLayout = ImageLayout.Stretch;
             P_Preview.Controls.Add(previewPB);
@@ -67,8 +97,7 @@ namespace CoseanGE.AppScreen
             originalPB.BackgroundImageLayout = ImageLayout.Stretch;
             P_Original.Controls.Add(originalPB);
 
-            for (int i = 0; i < ScreenController.openRecent.Count; i++)
-                P_OpenRecentButtons.Controls.Add(addButton(ScreenController.openRecent[i], i));
+            imageList.Add(new Bitmap(imgPreview));
 
             C_Zoom.DisplayMember = "Text";
             C_Zoom.ValueMember = "Value";
@@ -90,30 +119,42 @@ namespace CoseanGE.AppScreen
             initializeToolTip();
             initializeTheme();
 
+            for (int i = 0; i < ScreenController.openRecent.Count; i++)
+                P_OpenRecentButtons.Controls.Add(addButton(ScreenController.openRecent[i]));
+
 
         }
 
-        private Button addButton(string name, int i)
+        private Button addButton(string name)
         {
-            Button b = new Button();
-            b.Text = name;
-            b.TextAlign = ContentAlignment.MiddleLeft;
-            b.Dock = DockStyle.Top;
+            Console.WriteLine(name);
+            CSDesButton b = new CSDesButton();
+            b.DisplayText = System.IO.Path.GetFileNameWithoutExtension(name);
+            b.Text = System.IO.Path.GetFileNameWithoutExtension(name);
+            b.DisplayDesc =ScreenController.pathSize(name, 36);
             b.Height = 35;
-            b.ForeColor = Color.White;
-            b.BackColor = Color.Transparent;
-            b.FlatStyle = FlatStyle.Flat;
-            b.FlatAppearance.BorderSize = 0;
-            b.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 123, 13);
-            b.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 53, 13);
-            b.Click += (s, e) => { ClickButton(name); };
+            b.BZBackColor = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R ), Math.Abs(ThemeColor.Default.Top.G), Math.Abs(ThemeColor.Default.Top.B));
+            b.MouseClickColor1 = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R - 15), Math.Abs(ThemeColor.Default.Top.G - 15), Math.Abs(ThemeColor.Default.Top.B - 15));
+            b.MouseHoverColor = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R + 15), Math.Abs(ThemeColor.Default.Top.G + 15), Math.Abs(ThemeColor.Default.Top.B + 15));
+            b.Dock = DockStyle.Top;
+
+            b.Click += (s, e) => { ClickReOpenButton(name); };
             return b;
         }
 
-        private void ClickButton(string name)
+
+        private void ClickReOpenButton(string name)
         {
-            ScreenController.WriteOpenRecent(name);
-            ScreenController.NewEditor(name);
+
+            if (File.Exists(name))
+            {
+                ScreenController.WriteOpenRecent(name);
+                ScreenController.NewEditor(name);
+            }
+            else
+            {
+                MessageBox.Show("There is no image file in ' " + name +" '", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void initializeToolTip() {
@@ -160,6 +201,8 @@ namespace CoseanGE.AppScreen
         private void B_Drawer_Click(object sender, EventArgs e)
         {
             drawerPanelVisible = !drawerPanelVisible;
+            P_Help.Width = 0;
+            P_Open.Width = 0;
             reSize();
         }
 
@@ -199,8 +242,9 @@ namespace CoseanGE.AppScreen
         {
             Bitmap image = new Bitmap(imgPreview);
             Bitmap negative = Rotate.build(image, Rotate.RIGHT);
-            previewPB.Image = negative;
-            imgPreview = previewPB.Image;
+            //previewPB.Image = negative;
+            //imgPreview = previewPB.Image;
+            imgPreview = negative;
             RGBChannelChanged();
         }
 
@@ -209,8 +253,9 @@ namespace CoseanGE.AppScreen
 
             Bitmap image = new Bitmap(imgPreview);
             Bitmap negative = ImageProsesing.Rotate.build(image, Rotate.LEFT);
-            previewPB.Image = negative;
-            imgPreview = previewPB.Image;
+            //previewPB.Image = negative;
+            //imgPreview = previewPB.Image;
+            imgPreview = negative;
             RGBChannelChanged();
         }
 
@@ -218,9 +263,11 @@ namespace CoseanGE.AppScreen
         {
             Bitmap image = new Bitmap(imgPreview);
             Bitmap negative = Negative.build(image);
-            previewPB.Image = negative;
-            imgPreview = previewPB.Image;
+            //previewPB.Image = negative;
+            //imgPreview = previewPB.Image;
+            imgPreview = negative;
             RGBChannelChanged();
+            B_RefHis.Visible = true;
         }
 
         private void B_BlackWhite_Click(object sender, EventArgs e)
@@ -228,9 +275,11 @@ namespace CoseanGE.AppScreen
            
             Bitmap image = new Bitmap(imgPreview);
             Bitmap gri = BlackWhite.build(image);
-            previewPB.Image = gri;
-            imgPreview = previewPB.Image;
+            //previewPB.Image = gri;
+            //imgPreview = previewPB.Image;
+            imgPreview = gri;
             RGBChannelChanged();
+            B_RefHis.Visible = true;
 
         }
 
@@ -238,39 +287,51 @@ namespace CoseanGE.AppScreen
         {
             Bitmap image = new Bitmap(imgPreview);
             Bitmap mirror = Mirror.build(image);
-            previewPB.Image = mirror;
-            imgPreview = previewPB.Image;
+            //previewPB.Image = mirror;
+            //imgPreview = previewPB.Image;
+            imgPreview = mirror;
             RGBChannelChanged();
         }
 
         private void B_Clean_Click(object sender, EventArgs e)
         {
             C_Zoom.SelectedIndex = 3;
-            previewPB.Image = imgOriginal;
+            //previewPB.Image = imgOriginal;
             imgPreview = imgOriginal;
             RGBChannelChanged();
-
+            B_RefHis.Visible = true;
+            
         }
 
         private void C_Zoom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            zoomPicture();
+            Double zoom = Double.Parse(C_Zoom.SelectedValue.ToString());
+            originalPB.Image = Scala.Zoom(imgOriginal, zoom);
+            RGBChannelChanged();
+            
         }
 
         private void B_ScalaApply_Click(object sender, EventArgs e)
         {
-            Bitmap image = new Bitmap(imgPreview);
-            previewPB.Image = Scala.myScale(image, Double.Parse(T_Width.Text), Double.Parse(T_Height.Text));
-            imgPreview = previewPB.Image;
+            try
+            {
+                int newWidth =  Convert.ToInt32(T_Width.Text); 
+                int newHeight = Convert.ToInt32(T_Height.Text);
 
-            zoomPicture();
-        }
-
-        private void zoomPicture()
-        {
-            Double zoom = Double.Parse(C_Zoom.SelectedValue.ToString());
-            originalPB.Image = Scala.Zoom(imgOriginal, zoom);
-            RGBChannelChanged();
+                if(newHeight > 0 && newWidth > 0){
+                    Bitmap image = new Bitmap(imgPreview);
+                    Bitmap scala = Scala.build(image,newWidth,newHeight);
+                    imgPreview = scala;
+                    RGBChannelChanged();
+                    B_RefHis.Visible = true;
+                }
+                else{
+                    MessageBox.Show("New dimensions cannot be zero for scaling!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex){
+                MessageBox.Show("New dimensions cannot be zero for scaling!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void B_OpenRecent_Click(object sender, EventArgs e)
@@ -285,44 +346,17 @@ namespace CoseanGE.AppScreen
 
         private void B_Open_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opn = new OpenFileDialog();
-            opn.Filter = "JPG|*.jpg;*.jpeg|BMP|*.bmp|GIF|*.gif|PNG|*.png|TIFF|*.tiff|All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tiff;*.gif";
-            if (opn.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-            {
-                return;
-            }
-            pathSource = opn.FileName;
-            ScreenController.WriteOpenRecent(opn.FileName);
-            //Image temp = Bitmap.FromFile(pathSource);
-            //imgOriginal = new Bitmap(temp);
-            //imgPreview = new Bitmap(temp);
-            //temp.Dispose();
-            opn.Dispose();
-            imageColor();
-            //previewPB.Image = imgOriginal;
-            //originalPB.Image = imgOriginal;
-            //C_Zoom.SelectedIndex = 3;
-            //RGBChannelChanged();
-            RefreshPage();
+            Action_Open();
         }
 
         private void B_SaveAs_Click(object sender, EventArgs e)
         {
-            SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "JPG|*.jpg;*.jpeg|BMP|*.bmp|GIF|*.gif|PNG|*.png|TIFF|*.tiff|All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tiff;*.gif";
-            if (save.ShowDialog() == DialogResult.OK)
-            {
-                Bitmap bmp = new Bitmap(imgPreview);
-                bmp.Save(save.FileName, StringtoFormat(save.Filter));
-                save.Dispose();
-            }
+            Action_SaveAs();
         }
 
         private void B_Save_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap(imgPreview);
-            bmp.Save(pathSource, StringtoFormat(pathSource.Substring(pathSource.IndexOf("."))));
-
+            Action_Save();
         }
 
         public ImageFormat StringtoFormat(String type)
@@ -359,6 +393,38 @@ namespace CoseanGE.AppScreen
             ScreenController.CloseEditor();
         }
 
+        private void Action_Open() {
+            OpenFileDialog opn = new OpenFileDialog();
+            opn.Filter = "JPG|*.jpg;*.jpeg|BMP|*.bmp|GIF|*.gif|PNG|*.png|TIFF|*.tiff|All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tiff;*.gif";
+            if (opn.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+            pathSource = opn.FileName;
+            ScreenController.WriteOpenRecent(opn.FileName);
+            opn.Dispose();
+            imageColor();
+            RefreshPage();
+        }
+
+        private void Action_Save() {
+            Bitmap bmp = new Bitmap(imgPreview);
+            bmp.Save(pathSource, StringtoFormat(pathSource.Substring(pathSource.IndexOf("."))));
+        }
+
+        private void Action_SaveAs() {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "JPG|*.jpg;*.jpeg|BMP|*.bmp|GIF|*.gif|PNG|*.png|TIFF|*.tiff|All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tiff;*.gif";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap bmp = new Bitmap(imgPreview);
+                bmp.Save(save.FileName, StringtoFormat(save.Filter));
+                save.Dispose();
+            }
+        }
+        
+
+
         private void Red_CheckedChanged(object sender, EventArgs e)
         {
             RChannel = Red.Checked;
@@ -385,19 +451,20 @@ namespace CoseanGE.AppScreen
             previewPB.Image = Scala.Zoom(rgb, zoom);
             //imgPreview = previewPB.Image;
             //drawHistogram();
+            if (imageList.Count == 15)
+                imageList.RemoveAt(0);
+            imageList.Add(new Bitmap(imgPreview));
+            GC.Collect();
+            
         }
 
         private void B_HistogramRefresh_Click(object sender, EventArgs e)
         {
-
-            
-            
-
             Bitmap image = new Bitmap(imgPreview);
             Image image2 = Histogram.build(image);
             PB_Histogram.Image = new Bitmap(image2, 210, 130);
-
-      
+            GC.Collect();
+            B_RefHis.Visible = false;
         }
 
         private void changeColor()
@@ -406,12 +473,6 @@ namespace CoseanGE.AppScreen
             this.panel3.BackColor = ThemeColor.Default.Panel;
             this.panel1.BackColor=ThemeColor.Default.Panel;
             this.P_Open.BackColor = ThemeColor.Default.Panel;
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-           
-
         }
 
         private void imageColor() 
@@ -438,6 +499,7 @@ namespace CoseanGE.AppScreen
             private void initializeTheme() 
             {
                 this.P_Drawer.BackColor = ThemeColor.Default.Drawer;
+                this.P_Help.BackColor = ThemeColor.Default.Panel;
                 this.panel1.BackColor = ThemeColor.Default.Panel;
                 this.panel3.BackColor = ThemeColor.Default.Panel;
                 this.panel6.BackColor = ThemeColor.Default.Panel;
@@ -469,6 +531,11 @@ namespace CoseanGE.AppScreen
                 MouseDownOverColor(orgButton);
                 MouseDownOverColor(B_Undo);
                 MouseDownOverColor(B_Help);
+                MouseDownOverColor(B_Shortcut);
+                MouseDownOverColor(B_CheckForUpdate);
+                MouseDownOverColor(B_CoseanHelp);
+                MouseDownOverColor(B_HelpBack);
+                MouseDownOverColor(B_About);
                 _MinButton.MouseClickColor1 = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R - 15), Math.Abs(ThemeColor.Default.Top.G - 15), Math.Abs(ThemeColor.Default.Top.B - 15));
                 _MinButton.MouseHoverColor = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R + 15), Math.Abs(ThemeColor.Default.Top.G + 15), Math.Abs(ThemeColor.Default.Top.B + 15));
                 _MaxButton.MouseClickColor1 = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R - 15), Math.Abs(ThemeColor.Default.Top.G - 15), Math.Abs(ThemeColor.Default.Top.B - 15));
@@ -480,6 +547,65 @@ namespace CoseanGE.AppScreen
                 btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R - 15), Math.Abs(ThemeColor.Default.Top.G - 15), Math.Abs(ThemeColor.Default.Top.B - 15));
                 btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(ThemeColor.Default.Top.A, Math.Abs(ThemeColor.Default.Top.R + 15), Math.Abs(ThemeColor.Default.Top.G + 15), Math.Abs(ThemeColor.Default.Top.B + 15));
             
+            }
+
+            private void B_Undo_Click(object sender, EventArgs e)
+            {
+                Action_Undo();
+            }
+
+            private void Action_Undo() {
+                if (imageList.Count > 1)
+                {
+                    imageList.Remove(imageList.Last());
+                    imgPreview = imageList.Last();
+                    Bitmap image = new Bitmap(imgPreview);
+                    Bitmap rgb = RGBChannel.build(image, RChannel, GChannel, BChannel);
+                    Double zoom = Double.Parse(C_Zoom.SelectedValue.ToString());
+                    previewPB.Image = Scala.Zoom(rgb, zoom);
+                    GC.Collect();
+                    B_RefHis.Visible = true;
+                }
+            }
+
+            private void T_Width_KeyPress(object sender, KeyPressEventArgs e)
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+
+            private void T_Height_KeyPress(object sender, KeyPressEventArgs e)
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+
+            private void B_Help_Click(object sender, EventArgs e)
+            {
+                P_Help.Width = P_Help.Width == 0 ? 220 : 0;
+            }
+
+            private void B_HelpBack_Click(object sender, EventArgs e)
+            {
+                P_Help.Width = 0;
+            }
+
+            private void B_CheckForUpdate_Click(object sender, EventArgs e)
+            {
+                MessageBox.Show("You are using the latest version.", "Check for Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            private void B_Shortcut_Click(object sender, EventArgs e)
+            {
+                new Shortcut().ShowDialog();
+            }
+
+            private void B_CoseanHelp_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void B_About_Click(object sender, EventArgs e)
+            {
+                new About().ShowDialog();
             }
 
 

@@ -30,7 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorScrenn));
             this.P_Drawer = new System.Windows.Forms.Panel();
+            this.B_About = new System.Windows.Forms.Button();
+            this.P_Help = new System.Windows.Forms.Panel();
+            this.B_CheckForUpdate = new System.Windows.Forms.Button();
+            this.B_Shortcut = new System.Windows.Forms.Button();
+            this.B_CoseanHelp = new System.Windows.Forms.Button();
+            this.L_Help = new System.Windows.Forms.Label();
+            this.B_HelpBack = new System.Windows.Forms.Button();
             this.P_Open = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.P_OpenRecentButtons = new System.Windows.Forms.Panel();
             this.B_OpenBack = new System.Windows.Forms.Button();
             this.B_Help = new System.Windows.Forms.Button();
             this.B_CloseProject = new System.Windows.Forms.Button();
@@ -85,9 +94,9 @@
             this.PB_Histogram = new System.Windows.Forms.PictureBox();
             this.P_Picture = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.P_OpenRecentButtons = new System.Windows.Forms.Panel();
             this.TopPanel.SuspendLayout();
             this.P_Drawer.SuspendLayout();
+            this.P_Help.SuspendLayout();
             this.P_Open.SuspendLayout();
             this.P_Header.SuspendLayout();
             this.P_Zoom.SuspendLayout();
@@ -144,6 +153,8 @@
             // P_Drawer
             // 
             this.P_Drawer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
+            this.P_Drawer.Controls.Add(this.B_About);
+            this.P_Drawer.Controls.Add(this.P_Help);
             this.P_Drawer.Controls.Add(this.P_Open);
             this.P_Drawer.Controls.Add(this.B_Help);
             this.P_Drawer.Controls.Add(this.B_CloseProject);
@@ -159,22 +170,167 @@
             this.P_Drawer.Size = new System.Drawing.Size(220, 667);
             this.P_Drawer.TabIndex = 6;
             // 
+            // B_About
+            // 
+            this.B_About.BackColor = System.Drawing.Color.Transparent;
+            this.B_About.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.B_About.FlatAppearance.BorderSize = 0;
+            this.B_About.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
+            this.B_About.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
+            this.B_About.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_About.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12.25F);
+            this.B_About.ForeColor = System.Drawing.Color.White;
+            this.B_About.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.B_About.Location = new System.Drawing.Point(0, 597);
+            this.B_About.Name = "B_About";
+            this.B_About.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.B_About.Size = new System.Drawing.Size(220, 35);
+            this.B_About.TabIndex = 31;
+            this.B_About.Text = "About";
+            this.B_About.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_About.UseVisualStyleBackColor = false;
+            this.B_About.Click += new System.EventHandler(this.B_About_Click);
+            // 
+            // P_Help
+            // 
+            this.P_Help.AutoScroll = true;
+            this.P_Help.Controls.Add(this.B_CheckForUpdate);
+            this.P_Help.Controls.Add(this.B_Shortcut);
+            this.P_Help.Controls.Add(this.B_CoseanHelp);
+            this.P_Help.Controls.Add(this.L_Help);
+            this.P_Help.Controls.Add(this.B_HelpBack);
+            this.P_Help.Location = new System.Drawing.Point(0, 0);
+            this.P_Help.Name = "P_Help";
+            this.P_Help.Size = new System.Drawing.Size(0, 420);
+            this.P_Help.TabIndex = 30;
+            // 
+            // B_CheckForUpdate
+            // 
+            this.B_CheckForUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.B_CheckForUpdate.FlatAppearance.BorderSize = 0;
+            this.B_CheckForUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
+            this.B_CheckForUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
+            this.B_CheckForUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_CheckForUpdate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12.25F);
+            this.B_CheckForUpdate.ForeColor = System.Drawing.Color.White;
+            this.B_CheckForUpdate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.B_CheckForUpdate.Location = new System.Drawing.Point(0, 110);
+            this.B_CheckForUpdate.Name = "B_CheckForUpdate";
+            this.B_CheckForUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.B_CheckForUpdate.Size = new System.Drawing.Size(220, 35);
+            this.B_CheckForUpdate.TabIndex = 34;
+            this.B_CheckForUpdate.Text = "Check for Updates";
+            this.B_CheckForUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_CheckForUpdate.UseVisualStyleBackColor = false;
+            this.B_CheckForUpdate.Click += new System.EventHandler(this.B_CheckForUpdate_Click);
+            // 
+            // B_Shortcut
+            // 
+            this.B_Shortcut.BackColor = System.Drawing.Color.Transparent;
+            this.B_Shortcut.FlatAppearance.BorderSize = 0;
+            this.B_Shortcut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
+            this.B_Shortcut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
+            this.B_Shortcut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_Shortcut.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12.25F);
+            this.B_Shortcut.ForeColor = System.Drawing.Color.White;
+            this.B_Shortcut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.B_Shortcut.Location = new System.Drawing.Point(0, 75);
+            this.B_Shortcut.Name = "B_Shortcut";
+            this.B_Shortcut.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.B_Shortcut.Size = new System.Drawing.Size(220, 35);
+            this.B_Shortcut.TabIndex = 33;
+            this.B_Shortcut.Text = "Shortcut List  ";
+            this.B_Shortcut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_Shortcut.UseVisualStyleBackColor = false;
+            this.B_Shortcut.Click += new System.EventHandler(this.B_Shortcut_Click);
+            // 
+            // B_CoseanHelp
+            // 
+            this.B_CoseanHelp.BackColor = System.Drawing.Color.Transparent;
+            this.B_CoseanHelp.FlatAppearance.BorderSize = 0;
+            this.B_CoseanHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(53)))), ((int)(((byte)(13)))));
+            this.B_CoseanHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(123)))), ((int)(((byte)(13)))));
+            this.B_CoseanHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_CoseanHelp.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12.25F);
+            this.B_CoseanHelp.ForeColor = System.Drawing.Color.White;
+            this.B_CoseanHelp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.B_CoseanHelp.Location = new System.Drawing.Point(0, 40);
+            this.B_CoseanHelp.Name = "B_CoseanHelp";
+            this.B_CoseanHelp.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.B_CoseanHelp.Size = new System.Drawing.Size(220, 35);
+            this.B_CoseanHelp.TabIndex = 32;
+            this.B_CoseanHelp.Text = "Cosean Help";
+            this.B_CoseanHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_CoseanHelp.UseVisualStyleBackColor = false;
+            this.B_CoseanHelp.Click += new System.EventHandler(this.B_CoseanHelp_Click);
+            // 
+            // L_Help
+            // 
+            this.L_Help.AutoSize = true;
+            this.L_Help.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.L_Help.ForeColor = System.Drawing.Color.White;
+            this.L_Help.Location = new System.Drawing.Point(83, 12);
+            this.L_Help.Name = "L_Help";
+            this.L_Help.Size = new System.Drawing.Size(44, 18);
+            this.L_Help.TabIndex = 31;
+            this.L_Help.Text = "Help";
+            // 
+            // B_HelpBack
+            // 
+            this.B_HelpBack.AutoEllipsis = true;
+            this.B_HelpBack.BackColor = System.Drawing.Color.Transparent;
+            this.B_HelpBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("B_HelpBack.BackgroundImage")));
+            this.B_HelpBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.B_HelpBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.B_HelpBack.FlatAppearance.BorderSize = 0;
+            this.B_HelpBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(3)))));
+            this.B_HelpBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(13)))));
+            this.B_HelpBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.B_HelpBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.B_HelpBack.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.B_HelpBack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.B_HelpBack.Location = new System.Drawing.Point(0, 0);
+            this.B_HelpBack.Name = "B_HelpBack";
+            this.B_HelpBack.Size = new System.Drawing.Size(40, 40);
+            this.B_HelpBack.TabIndex = 29;
+            this.B_HelpBack.UseVisualStyleBackColor = false;
+            this.B_HelpBack.Click += new System.EventHandler(this.B_HelpBack_Click);
+            // 
             // P_Open
             // 
             this.P_Open.AutoScroll = true;
+            this.P_Open.Controls.Add(this.label1);
             this.P_Open.Controls.Add(this.P_OpenRecentButtons);
             this.P_Open.Controls.Add(this.B_OpenBack);
             this.P_Open.Location = new System.Drawing.Point(0, 0);
             this.P_Open.Name = "P_Open";
-            this.P_Open.Size = new System.Drawing.Size(0, 390);
+            this.P_Open.Size = new System.Drawing.Size(0, 420);
             this.P_Open.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(52, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 18);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Open Recent";
+            // 
+            // P_OpenRecentButtons
+            // 
+            this.P_OpenRecentButtons.Location = new System.Drawing.Point(0, 40);
+            this.P_OpenRecentButtons.Name = "P_OpenRecentButtons";
+            this.P_OpenRecentButtons.Size = new System.Drawing.Size(220, 350);
+            this.P_OpenRecentButtons.TabIndex = 30;
             // 
             // B_OpenBack
             // 
             this.B_OpenBack.AutoEllipsis = true;
             this.B_OpenBack.BackColor = System.Drawing.Color.Transparent;
             this.B_OpenBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("B_OpenBack.BackgroundImage")));
-            this.B_OpenBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.B_OpenBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.B_OpenBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.B_OpenBack.FlatAppearance.BorderSize = 0;
             this.B_OpenBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(3)))));
@@ -183,7 +339,7 @@
             this.B_OpenBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.B_OpenBack.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.B_OpenBack.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.B_OpenBack.Location = new System.Drawing.Point(-2, 0);
+            this.B_OpenBack.Location = new System.Drawing.Point(0, 0);
             this.B_OpenBack.Name = "B_OpenBack";
             this.B_OpenBack.Size = new System.Drawing.Size(40, 40);
             this.B_OpenBack.TabIndex = 29;
@@ -209,7 +365,7 @@
             this.B_Help.Text = "Help ";
             this.B_Help.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.B_Help.UseVisualStyleBackColor = false;
-            this.B_Help.Click += new System.EventHandler(this.button5_Click);
+            this.B_Help.Click += new System.EventHandler(this.B_Help_Click);
             // 
             // B_CloseProject
             // 
@@ -251,6 +407,7 @@
             this.B_Undo.Text = "Undo";
             this.B_Undo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.B_Undo.UseVisualStyleBackColor = false;
+            this.B_Undo.Click += new System.EventHandler(this.B_Undo_Click);
             // 
             // B_SaveAs
             // 
@@ -782,6 +939,7 @@
             this.T_Height.Name = "T_Height";
             this.T_Height.Size = new System.Drawing.Size(100, 20);
             this.T_Height.TabIndex = 9;
+            this.T_Height.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.T_Height_KeyPress);
             // 
             // T_Width
             // 
@@ -789,6 +947,7 @@
             this.T_Width.Name = "T_Width";
             this.T_Width.Size = new System.Drawing.Size(100, 20);
             this.T_Width.TabIndex = 8;
+            this.T_Width.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.T_Width_KeyPress);
             // 
             // L_Height
             // 
@@ -992,7 +1151,8 @@
             // B_RefHis
             // 
             this.B_RefHis.BackColor = System.Drawing.Color.Transparent;
-            this.B_RefHis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.B_RefHis.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("B_RefHis.BackgroundImage")));
+            this.B_RefHis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.B_RefHis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.B_RefHis.FlatAppearance.BorderSize = 0;
             this.B_RefHis.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(63)))), ((int)(((byte)(3)))));
@@ -1002,10 +1162,10 @@
             this.B_RefHis.ForeColor = System.Drawing.SystemColors.Desktop;
             this.B_RefHis.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.B_RefHis.Location = new System.Drawing.Point(0, 0);
+            this.B_RefHis.Margin = new System.Windows.Forms.Padding(0);
             this.B_RefHis.Name = "B_RefHis";
-            this.B_RefHis.Size = new System.Drawing.Size(20, 20);
+            this.B_RefHis.Size = new System.Drawing.Size(25, 25);
             this.B_RefHis.TabIndex = 34;
-            this.B_RefHis.Text = "?";
             this.B_RefHis.UseVisualStyleBackColor = false;
             this.B_RefHis.Click += new System.EventHandler(this.B_HistogramRefresh_Click);
             // 
@@ -1043,13 +1203,6 @@
             this.panel1.Size = new System.Drawing.Size(1, 626);
             this.panel1.TabIndex = 13;
             // 
-            // P_OpenRecentButtons
-            // 
-            this.P_OpenRecentButtons.Location = new System.Drawing.Point(0, 40);
-            this.P_OpenRecentButtons.Name = "P_OpenRecentButtons";
-            this.P_OpenRecentButtons.Size = new System.Drawing.Size(220, 350);
-            this.P_OpenRecentButtons.TabIndex = 30;
-            // 
             // EditorScrenn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1065,6 +1218,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "EditorScrenn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditorScrenn";
             this.Load += new System.EventHandler(this.EditorScrenn_Load);
             this.SizeChanged += new System.EventHandler(this.P_Picture_SizeChanged);
@@ -1083,7 +1237,10 @@
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.P_Drawer.ResumeLayout(false);
+            this.P_Help.ResumeLayout(false);
+            this.P_Help.PerformLayout();
             this.P_Open.ResumeLayout(false);
+            this.P_Open.PerformLayout();
             this.P_Header.ResumeLayout(false);
             this.P_Zoom.ResumeLayout(false);
             this.P_Zoom.PerformLayout();
@@ -1163,5 +1320,13 @@
         private System.Windows.Forms.Button B_RefHis;
         private System.Windows.Forms.PictureBox PB_Histogram;
         private System.Windows.Forms.Panel P_OpenRecentButtons;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel P_Help;
+        private System.Windows.Forms.Button B_CheckForUpdate;
+        private System.Windows.Forms.Button B_Shortcut;
+        private System.Windows.Forms.Button B_CoseanHelp;
+        private System.Windows.Forms.Label L_Help;
+        private System.Windows.Forms.Button B_HelpBack;
+        private System.Windows.Forms.Button B_About;
     }
 }

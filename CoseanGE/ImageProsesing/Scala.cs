@@ -9,51 +9,26 @@ namespace CoseanGE.ImageProsesing
 {
     class Scala
     {
-
-        public static Bitmap build(Bitmap bmp, double maxWidth, double maxHeight)
+        public static Bitmap build(Bitmap bmp, int newWidth, int newHeight)
         {
-            var ratioX = (double)maxWidth / bmp.Width;
-            var ratioY = (double)maxHeight / bmp.Height;
-            //var ratio = Math.Min(ratioX, ratioY);
 
-            var newWidth = (int)(bmp.Width * ratioX);
-            var newHeight = (int)(bmp.Height * ratioY);
+            Bitmap newImage = new Bitmap(newWidth, newHeight);
+            int w1 = bmp.Width;
+            int h1 = bmp.Height;
 
-            var newImage = new Bitmap(newWidth, newHeight);
+            int x_ratio = (int)((w1 << 16) / newWidth) + 1;
+            int y_ratio = (int)((h1 << 16) / newHeight) + 1;
 
-            using (var graphics = Graphics.FromImage(newImage))
-                graphics.DrawImage(bmp, 0, 0, newWidth, newHeight);
-
-            new Bitmap(bmp,1500,1000);
-
-            return newImage;
-        }
-
-        public static Bitmap myScale(Bitmap bmp, double maxWidth, double maxHeight)
-        {
-            Bitmap newImage = new Bitmap((int)maxWidth, (int)maxHeight);
-            var ratioX = (double)maxWidth / bmp.Width;
-            var ratioY = (double)maxHeight / bmp.Height;
-            Color[] bmpPixels = new Color[bmp.Width * bmp.Height];
-            
-            for (int y = 0; y < bmp.Height; y++)
+            int x2, y2;
+            for (int i = 0; i < newHeight; i++)
             {
-                for (int x = 0; x < bmp.Width; x++)
+                for (int j = 0; j < newWidth; j++)
                 {
-                    Color colour = bmp.GetPixel(x, y);
-
-                    bmpPixels[x + y * bmp.Width] = colour;
+                    x2 = ((j * x_ratio) >> 16);
+                    y2 = ((i * y_ratio) >> 16);
+                    newImage.SetPixel(j, i, bmp.GetPixel(x2, y2));
                 }
             }
-            
-            for (int i = 0; i < newImage.Height; i++)
-            {
-                for (int j = 0; j < newImage.Width; j++)
-                {
-                    //newImage.SetPixel(j, i,bmpPixels[j+*]);
-                }
-            }
-
             return newImage;
         }
 

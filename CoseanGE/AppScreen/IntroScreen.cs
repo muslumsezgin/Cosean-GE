@@ -1,4 +1,5 @@
 ﻿using CoseanGE.Controller;
+using CoseanGE.Theme;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,18 +30,14 @@ namespace CoseanGE.AppScreen
 
         private Button addButton(string name) {
 
-            Button b = new Button();
-            b.Text = name;
-            b.TextAlign = ContentAlignment.MiddleLeft;
-            b.Dock = DockStyle.Top;
+            CSDesButton b = new CSDesButton();
+            b.DisplayText = System.IO.Path.GetFileNameWithoutExtension(name);
+            b.Text = System.IO.Path.GetFileNameWithoutExtension(name);
+            b.DisplayDesc = ScreenController.pathSize(name,45);
+            b.TextLocation_Y = 5;
             b.Height = 45;
-            b.ForeColor = Color.White;
-            b.BackColor = Color.Transparent;
-            b.FlatStyle = FlatStyle.Flat;
-            b.FlatAppearance.BorderSize = 0;
-            b.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 83, 13);
-            b.FlatAppearance.MouseDownBackColor = Color.FromArgb(255, 53, 13);
-            b.Click += (s, e) => { ClickButton(name); };  
+            b.Dock = DockStyle.Top;
+            b.Click += (s, e) => { ClickButton(name); };
             return b;
         }
 
@@ -50,7 +47,7 @@ namespace CoseanGE.AppScreen
             OpenFileDialog opn = new OpenFileDialog();
             opn.Filter = "JPG|*.jpg;*.jpeg|BMP|*.bmp|GIF|*.gif|PNG|*.png|TIFF|*.tif;*.tiff|All Graphics Types|*.bmp;*.jpg;*.jpeg;*.png;*.tif;*.tiff";
             if (opn.ShowDialog() != System.Windows.Forms.DialogResult.OK){return;}
-
+            
             ClickButton(opn.FileName);
         }
 

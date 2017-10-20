@@ -285,7 +285,7 @@ namespace CoseanGE.Theme
         //actions for close,min,max buttons
         private void _CloseButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit Cosean GE?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit Cosean GE?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 Controller.ScreenController.CloseApp();

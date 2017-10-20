@@ -19,7 +19,7 @@ namespace CoseanGE.ImageProsesing
                 {
                     c = bmp.GetPixel(j, i);
                     int color = Convert.ToInt32(c.R * 0.2126) + Convert.ToInt32(c.G * 0.7152) + Convert.ToInt32(c.B * 0.0722);
-                    bmp.SetPixel(j, i, Color.FromArgb(color,color,color));
+                    bmp.SetPixel(j, i, Color.FromArgb(c.A,color,color,color));
                 }
             }
 
