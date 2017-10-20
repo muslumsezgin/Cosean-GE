@@ -59,6 +59,12 @@
     <Compile Include="AppScreen\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppScreen\CoseanHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppScreen\CoseanHelp.Designer.cs">
+      <DependentUpon>CoseanHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppScreen\EditorScrenn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="AppScreen\About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppScreen\CoseanHelp.resx">
+      <DependentUpon>CoseanHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppScreen\EditorScrenn.resx">
       <DependentUpon>EditorScrenn.cs</DependentUpon>

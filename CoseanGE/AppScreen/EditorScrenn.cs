@@ -600,7 +600,7 @@ namespace CoseanGE.AppScreen
 
             private void B_CoseanHelp_Click(object sender, EventArgs e)
             {
-
+                new CoseanHelp().ShowDialog();
             }
 
             private void B_About_Click(object sender, EventArgs e)
